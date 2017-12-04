@@ -3,11 +3,11 @@
  */
 
 class Day1 {
-    fun findSum (input : String) : Long {
+    fun findSum(input: String): Long {
         val digits = input.toCharArray()
         val numDigits = digits.size
 
-        if (numDigits <=1 )
+        if (numDigits <= 1)
             return 0
 
         var runningSum = 0L
@@ -20,17 +20,17 @@ class Day1 {
         return runningSum
     }
 
-    fun findSum (input : String, divisor : Int) : Long {
+    fun findSum(input: String, divisor: Int): Long {
         val digits = input.toCharArray()
         val numDigits = digits.size
 
         if (numDigits % divisor != 0) throw IllegalArgumentException() // guaranteed to be divisible
 
-        if (numDigits <=1 )
+        if (numDigits <= 1)
             return 0
 
         var runningSum = 0L
-        var offset = numDigits/divisor
+        var offset = numDigits / divisor
 
         for ((index, value) in digits.withIndex()) {
             val offsetIndex = index + offset
