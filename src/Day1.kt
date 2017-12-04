@@ -24,11 +24,13 @@ class Day1 {
         val digits = input.toCharArray()
         val numDigits = digits.size
 
+        if (numDigits % divisor != 0) throw IllegalArgumentException() // guaranteed to be divisible
+
         if (numDigits <=1 )
             return 0
 
         var runningSum = 0L
-        var offset = numDigits/divisor // guaranteed to be even
+        var offset = numDigits/divisor
 
         for ((index, value) in digits.withIndex()) {
             val offsetIndex = index + offset
