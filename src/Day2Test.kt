@@ -1,4 +1,3 @@
-
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -21,6 +20,21 @@ class Day2Test {
 
         val matrix = InputReader().read("Day2Input")
         println(Day2().checkDataIntegrity(matrix))
+
+    }
+
+    @Test
+    fun findQuotient() {
+        assertEquals(4L, Day2().findQuotient("5\t9\t2\t8"))
+        assertEquals(3L, Day2().findQuotient("9\t4\t7\t3"))
+        assertEquals(2L, Day2().findQuotient("3\t8\t6\t5"))
+    }
+
+    @Test
+    fun checkDataIntegrityForDivisors_Input() {
+
+        val matrix = InputReader().read("Day2Input")
+        println(Day2().checkDataIntegrityForDivisors(matrix))
 
     }
 
