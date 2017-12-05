@@ -1,6 +1,6 @@
 class Day2 {
 
-    fun checkDataIntegrity (matrix: String) : Long {
+    fun checkDataIntegrity(matrix: String): Long {
 
         val rows = matrix
                 .split("\n")
@@ -22,7 +22,7 @@ class Day2 {
             throw IllegalArgumentException()
     }
 
-    fun checkDataIntegrityForDivisors (matrix: String) : Long {
+    fun checkDataIntegrityForDivisors(matrix: String): Long {
 
         val rows = matrix
                 .split("\n")
@@ -34,16 +34,16 @@ class Day2 {
 
     fun findQuotient(row: String): Long {
 
-        val numElements = stringElementsToLong(row).sorted().reversed()
+        val numElements = stringElementsToLong(row).sorted()
         return evalQuotient(numElements)
     }
 
     fun evalQuotient(nums: List<Long>): Long {
         if (nums.size <= 1) throw IllegalArgumentException()
-        val max = nums[0]
-        val subList = nums.subList(1, nums.size)
-        for (value in subList){
-            if (max % value == 0L){
+        val max = nums[nums.size - 1]
+        val subList = nums.subList(0, nums.size - 1)
+        for (value in subList) {
+            if (max % value == 0L) {
                 return max / value
             }
         }
@@ -51,7 +51,7 @@ class Day2 {
     }
 
     private fun stringElementsToLong(row: String): List<Long> {
-         return row
+        return row
                 .split("\t")
                 .filterNot { it.isEmpty() }
                 .map { it.toLong() }
