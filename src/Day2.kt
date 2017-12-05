@@ -42,12 +42,10 @@ class Day2 {
         if (nums.size <= 1) throw IllegalArgumentException()
         val max = nums[nums.size - 1]
         val subList = nums.subList(0, nums.size - 1)
-        for (value in subList) {
-            if (max % value == 0L) {
-                return max / value
-            }
-        }
-        return evalQuotient(subList)
+        return subList
+                .firstOrNull { max % it == 0L }
+                ?.let { max / it }
+                ?: evalQuotient(subList)
     }
 
     private fun stringElementsToLong(row: String): List<Long> {
