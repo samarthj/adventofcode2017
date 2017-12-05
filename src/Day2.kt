@@ -4,7 +4,7 @@ class Day2 {
 
         val rows = matrix
                 .split("\n")
-                .filterNot { ele -> ele.isEmpty() }
+                .filterNot { it.isEmpty() }
 
         val difference = rows.map { row -> findDiff(row) }
 
@@ -14,8 +14,8 @@ class Day2 {
     fun findDiff(row: String): Long {
         val numElements = row
                 .split("\t")
-                .filterNot { ele -> ele.isEmpty() }
-                .map { ele -> ele.toLong() }
+                .filterNot { it.isEmpty() }
+                .map { it.toLong() }
 
         val max = numElements.max()
         val min = numElements.min()
